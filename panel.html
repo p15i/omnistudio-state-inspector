@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <style>
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        font-family: system-ui, sans-serif;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        box-sizing: border-box;
+      }
+      #toolbar {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        padding: 8px;
+        border-bottom: 1px solid #ccc;
+        background: #f5f5f5;
+        flex-wrap: wrap;
+      }
+      #query-btn,
+      #older-btn,
+      #newer-btn,
+      #copy-btn,
+      #snapshot-select {
+        padding: 3px 6px;
+        cursor: pointer;
+        font-size: 11px;
+        box-sizing: border-box;
+		/*border-radius: 5px;*/
+      }
+      #older-btn,
+      #newer-btn {
+        padding: 3px 6px;
+      }
+      #older-btn:disabled,
+      #newer-btn:disabled {
+        cursor: default;
+        opacity: 0.4;
+      }
+      #snapshot-select {
+        /*min-width: 150px;*/
+      }
+      /* Right-align the monitor checkbox */
+      #monitor-label {
+        margin-left: auto;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 11px;
+        cursor: pointer;
+        user-select: none;
+      }
+      #output {
+        flex: 1 1 auto;
+        width: 100%;
+        box-sizing: border-box;
+        margin: 0;
+        padding: 8px;
+        /* Always-present (transparent) border avoids layout shift on focus.
+           Width/colour are configurable from JS via CSS variables. */
+        border: var(--focus-border-width, 3px) solid transparent;
+        outline: none;
+        overflow: auto;
+        background: #fff;
+        color: #1e1e1e;
+        font-family: ui-monospace, Menlo, Consolas, monospace;
+        font-size: 12px;
+        line-height: 1.45;
+        white-space: pre;
+        tab-size: 2;
+      }
+      #output:focus {
+        border-color: var(--focus-border-color, #1a73e8);
+      }
+      /* JSON token colours (light theme) */
+            /* JSON token colours (light theme) */
+      #output .json-key     { color: #0451a5; }
+      #output .json-string  { color: #a31515; }
+      #output .json-number  { color: #098658; }
+      #output .json-null    { color: #808080; font-style: italic; }
+      #output .json-true    { color: #098658; }   /* green  */
+      #output .json-false   { color: #d97706; }   /* orange */
+      #output .json-punct   { color: #333333; }
+      /* Diff highlight (colour comes from --diff-highlight, set in JS) */
+      #output .diff-changed {
+        background-color: var(--diff-highlight, #fff3a8);
+        border-radius: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="toolbar">
+      <button id="query-btn">Query OmniScript State</button>
+	  &nbsp;&nbsp;&nbsp;&nbsp;Snapshots:
+      <select id="snapshot-select" title="Select snapshot" style="display: none;"></select>
+      <button id="older-btn" title="Older snapshot" style="display: none;">&#9664; Older</button>
+      <button id="newer-btn" title="Newer snapshot" style="display: none;">Newer &#9654;</button>
+      <button id="copy-btn" title="Copy snapshot to clipboard" style="display: none;">📋 Copy</button>
+      <label id="monitor-label" style="display: none;">
+        <input type="checkbox" id="monitor-checkbox" />
+        Monitor state changes
+      </label>
+    </div>
+    <pre id="output" tabindex="0" spellcheck="false"></pre>
+    <script src="panel.js"></script>
+  </body>
+</html>

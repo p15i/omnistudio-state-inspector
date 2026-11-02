@@ -1,0 +1,11 @@
+{
+  "manifest_version": 3,
+  "name": "OmniStudio State Inspector",
+  "version": "1.0.0",
+  "description": "DevTools panel that displays OmniScript state for the inspected page",
+  "devtools_page": "devtools.html",
+   "icons": {
+    "48": "icon48.png",
+    "128": "icon128.png"
+  }
+}

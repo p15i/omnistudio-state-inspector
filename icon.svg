@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="128"
+   height="128"
+   viewBox="0 0 33.866666 33.866666"
+   version="1.1"
+   id="svg1"
+   inkscape:export-filename="icon48.png"
+   inkscape:export-xdpi="36"
+   inkscape:export-ydpi="36"
+   inkscape:version="1.4.4 (dcaf3e7, 2026-05-05)"
+   sodipodi:docname="icon.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="true"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     showgrid="true"
+     inkscape:zoom="4.876411"
+     inkscape:cx="61.418121"
+     inkscape:cy="59.059829"
+     inkscape:window-width="1800"
+     inkscape:window-height="1101"
+     inkscape:window-x="0"
+     inkscape:window-y="40"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1">
+    <inkscape:grid
+       id="grid1"
+       units="px"
+       originx="0"
+       originy="0"
+       spacingx="0.26458333"
+       spacingy="0.26458333"
+       empcolor="#0099e5"
+       empopacity="0.30196078"
+       color="#0099e5"
+       opacity="0.14901961"
+       empspacing="5"
+       enabled="true"
+       visible="true" />
+  </sodipodi:namedview>
+  <defs
+     id="defs1">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect3"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0.79374998,0,1 @ F,0,0,1,0,0.79374998,0,1 @ F,0,0,1,0,0.79374998,0,1 @ F,0,0,1,0,0.79374998,0,1"
+       radius="3"
+       unit="px"
+       method="auto"
+       mode="F"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="display:none;fill:#94ffa1;fill-opacity:1;fill-rule:evenodd;stroke-width:24.0965;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.2;paint-order:stroke fill markers"
+       id="rect1"
+       width="25.4"
+       height="25.4"
+       x="4.2333331"
+       y="4.2333331" />
+    <g
+       id="g1"
+       transform="matrix(0.79176598,0,0,0.79176598,3.5719608,3.5260956)">
+      <path
+         style="fill:#fff394;fill-opacity:1;fill-rule:evenodd;stroke-width:7.13876;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.2;paint-order:stroke fill markers"
+         id="rect3"
+         width="9.7366743"
+         height="13.387917"
+         x="18.362083"
+         y="12.647083"
+         inkscape:path-effect="#path-effect3"
+         sodipodi:type="rect"
+         d="m 19.155833,12.647083 h 8.149175 a 0.79374998,0.79374998 45 0 1 0.79375,0.79375 V 25.24125 a 0.79374998,0.79374998 135 0 1 -0.79375,0.79375 h -8.149175 a 0.79374998,0.79374998 45 0 1 -0.79375,-0.79375 V 13.440833 a 0.79374998,0.79374998 135 0 1 0.79375,-0.79375 z"
+         transform="matrix(1.04076,0,0,1.04076,-0.74843715,-0.51549417)" />
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';font-variant-ligatures:none;text-align:justify;letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+         x="0.33128899"
+         y="23.955027"
+         id="text1"><tspan
+           sodipodi:role="line"
+           id="tspan1"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+           x="0.33128899"
+           y="23.955027"
+           dx="-0.059999999">{</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';font-variant-ligatures:none;text-align:justify;letter-spacing:-1.94204px;word-spacing:-0.015875px;fill:#002e99;fill-opacity:1;stroke-width:0.264583"
+         x="5.3730073"
+         y="25.287117"
+         id="text1-6"><tspan
+           sodipodi:role="line"
+           id="tspan1-6"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';letter-spacing:-1.94204px;word-spacing:-0.015875px;fill:#002e99;fill-opacity:1;stroke-width:0.264583"
+           x="5.3730073"
+           y="25.287117">k</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';font-variant-ligatures:none;text-align:justify;letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+         x="15.104595"
+         y="23.996378"
+         id="text1-6-4"><tspan
+           sodipodi:role="line"
+           id="tspan1-6-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:16.9333px;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+           x="15.104595"
+           y="23.996378">:</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';font-variant-ligatures:none;text-align:justify;letter-spacing:-1.94204px;word-spacing:-0.015875px;fill:#a10705;stroke-width:0.264583"
+         x="18.455957"
+         y="25.312046"
+         id="text1-6-4-6"><tspan
+           sodipodi:role="line"
+           id="tspan1-6-2-2"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';letter-spacing:-1.94204px;word-spacing:-0.015875px;fill:#a10705;stroke-width:0.264583"
+           x="18.455957"
+           y="25.312046">v</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;line-height:1.25;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';font-variant-ligatures:none;text-align:justify;letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+         x="26.480373"
+         y="23.955027"
+         id="text1-6-4-3"><tspan
+           sodipodi:role="line"
+           id="tspan1-6-2-3"
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:22.5778px;font-family:'IBM Plex Sans Condensed';-inkscape-font-specification:'IBM Plex Sans Condensed, ';letter-spacing:-1.94204px;word-spacing:-0.015875px;stroke-width:0.264583"
+           x="26.480373"
+           y="23.955027">}</tspan></text>
+    </g>
+  </g>
+</svg>
