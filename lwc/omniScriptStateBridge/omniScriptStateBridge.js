@@ -6,7 +6,7 @@ const PONG_EVENT   = "omniscript-bridge-pong";
 const RESTORE_EVENT = "omniscript-state-update";
 const RESULT_EVENT  = "omniscript-state-update-result";
 
-export default class OmniStateBridge extends OmniscriptBaseMixin(LightningElement) {
+export default class OmniScriptStateBridge extends OmniscriptBaseMixin(LightningElement) {
   connectedCallback() {
     window.addEventListener(PING_EVENT, this.handlePing);
     window.addEventListener(RESTORE_EVENT, this.handleRestore);
