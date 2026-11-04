@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>OmniStudio State Inspector Preferences</title>
+		<style>
+		html, body {
+			font-family: system-ui, sans-serif;
+		}
+
+		body {
+			font-size: 0.8em;
+			padding: 20px;
+		}
+
+		.setting {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 10px;
+		}
+
+		.switch-row {
+			display: flex;
+			align-items: center;
+			gap: 10px;
+			font-size: 14px;
+		}
+
+		.switch-row > span:not(.switch) {
+			color: #555;
+			user-select: none;
+		}
+
+		.switch {
+			position: relative;
+			display: inline-block;
+			width: 44px;
+			height: 24px;
+			cursor: pointer;
+			flex-shrink: 0;
+		}
+
+		.switch input {
+			position: absolute;
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
+
+		.slider {
+			position: absolute;
+			inset: 0;
+			background-color: #ccc;
+			border-radius: 24px;
+			transition: 0.2s;
+			cursor: pointer;
+		}
+
+		.slider::before {
+			content: "";
+			position: absolute;
+			height: 18px;
+			width: 18px;
+			left: 3px;
+			bottom: 3px;
+			background-color: white;
+			border-radius: 50%;
+			transition: 0.2s;
+		}
+
+		input:checked + .slider {
+			background-color: #1683d8;
+		}
+
+		input:checked + .slider::before {
+			transform: translateX(20px);
+		}
+
+		input:focus-visible + .slider {
+			outline: 2px solid #1683d8;
+			outline-offset: 3px;
+		}
+
+		#save {
+			margin-top: 20px;
+		}
+		</style>
+	</head>
+	<body>
+		<h2>OmniStudio State Inspector Preferences</h2>
+
+		<div class="setting">
+		<h3 id="settingName">Default value for "Monitor state changes"</h3>
+
+		<div class="switch-row">
+			<span>Unchecked</span>
+
+			<label class="switch">
+				<input
+				type="checkbox"
+				id="defaultMonitorStateChanges"
+				role="switch"
+				aria-label="Monitor state changes default value"
+				>
+				<span class="slider" aria-hidden="true"></span>
+			</label>
+
+			<span>Checked</span>
+		</div>
+
+		<p>
+			<button id="save" disabled>Save</button>
+			<span id="status" aria-live="polite"></span>
+		</p>
+
+		<script src="options.js"></script>
+	</body>
+</html>
