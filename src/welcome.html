@@ -6,18 +6,53 @@
       html, body {
         font-family: system-ui, sans-serif;
       }
-      body {
-        font-size: 0.8em;
-      }
+
+	  h1 {
+		font-size: 1.8em;
+	  }
+
+	  h2 {
+		font-size: 1.2em;
+	  }
+
+	  i {
+		font-size: 1.2em;
+	  }
+
+	  p {
+		font-size: 1.4em;
+	  }
     </style>
   </head>
   <body>
     <h1>OmniStudio State Inspector</h1>
 
-	<h3>View and track changes to OmniScript component state. Edit state in-line for development and troubleshooting.</h3>
+	<p>View and track changes to OmniScript component state. Edit state in-line for development and troubleshooting.</p>
 
-	<h3>After loading page with an embedded OmniScript, open the developer tools and select the "OmniScript State" tab:</h3>
+	<i>Note: This extension has only been tested with the standard OmniStudio runtime.</i>
 
-	<img src="screenshot.png"/>
+	<br/>
+
+	<h2>Website: <a href="https://p15i.github.io/omnistudio-state-inspector">p15i.github.io/omnistudio-state-inspector</a></h2>
+
+	<h2>OmniScriptStateBridge LWC: <a href="https://github.com/p15i/omnistudio-state-inspector/raw/refs/heads/main/lwc/omniScriptStateBridge.zip">Download ZIP file</a></h2>
+
+	<br/>
+
+	<p>After loading page with an embedded OmniScript, open the developer tools and select the "OmniScript State" tab.</p>
+
+	<img style="width: 1280px;" src="annotated-screenshot.png"/>
+
+	<br>
+
+	<p>If you want to directly edit the state from the console, embed the OmniScriptStateBridge LWC into the steps of the OmniScript. It has no visible UI, it's just there to receive a new state JSON and update the OmniScript.</p>
+
+	<img style="width: 550px;" src="bridge.png"/>
+
+	<br>
+
+	<p>The default value of "Monitor state changes" can be set in the extension options screen:</p>
+
+	<img style="width: 750px;" src="options.png"/>
   </body>
 </html>
