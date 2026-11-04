@@ -809,30 +809,3 @@ updateVisibility();
 setMonitorAvailability(false);
 syncPageIdentity();
 runQuery();
-
-/*const sampleJSON = {
-  "userProfile": "System Administrator",
-  "timeStamp": "2026-11-02T04:19:22.643Z",
-  "userTimeZoneName": "Australia/Sydney",
-  "userTimeZone": "660",
-  "userCurrencyCode": "AUD",
-  "userName": "test@example.com",
-  "userId": "005Bn00000QrxJ8IAJ",
-  "omniProcessId": "0jNBn000003ATevMAG",
-  "localTimeZoneName": "Australia/Sydney",
-  "PersonalDetails": {
-    "FirstName": "Guy",
-    "LastName": "Incognito",
-    "MailingAddress": {
-      "MailingStreet": "123 Fake Street",
-      "MailingSuburb": "Sampletown",
-      "MailingState": "NSW",
-      "MailingPostalCode": "2222"
-    }
-  }
-}
-
-function runQuerySample() {
-	addSnapshot(JSON.stringify(sampleJSON, null, 2), true);
-}
-runQuerySample();*/
