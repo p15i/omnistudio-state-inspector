@@ -33,6 +33,9 @@ const UPDATE_EVENT = "omniscript-state-restore";
 const PING_EVENT    = "omniscript-bridge-ping";
 const PONG_EVENT    = "omniscript-bridge-pong";
 
+
+let defaultMonitorStateChanges = false;
+
 document.documentElement.style.setProperty("--diff-highlight", DIFF_HIGHLIGHT_COLOR);
 document.documentElement.style.setProperty("--focus-border-color", FOCUS_BORDER_COLOR);
 document.documentElement.style.setProperty(
@@ -206,6 +209,7 @@ function renderDiffValue(current, older, indent, highlightWhole) {
 const history = [];
 let currentIndex = -1;
 let lastCapturedContent = null;
+let historyGeneration = 0;   // bumped whenever history is cleared
 
 // ---- Edit state ----
 let editMode = false;
@@ -259,13 +263,18 @@ function renderOutput() {
   } else {
     const entry = history[currentIndex];
     if (entry.isJson) {
-      const olderEntry = currentIndex > 0 ? history[currentIndex - 1] : null;
-      const currentObj = JSON.parse(entry.content);
-      if (olderEntry && olderEntry.isJson) {
-        const olderObj = JSON.parse(olderEntry.content);
-        output.innerHTML = renderDiffValue(currentObj, olderObj, 0, false);
-      } else {
-        output.innerHTML = renderJsonValue(currentObj, 0);
+      try {
+        const olderEntry = currentIndex > 0 ? history[currentIndex - 1] : null;
+        const currentObj = JSON.parse(entry.content);
+        if (olderEntry && olderEntry.isJson) {
+          const olderObj = JSON.parse(olderEntry.content);
+          output.innerHTML = renderDiffValue(currentObj, olderObj, 0, false);
+        } else {
+          output.innerHTML = renderJsonValue(currentObj, 0);
+        }
+      } catch (e) {
+        // Should never happen after Fix 1, but keep the panel usable.
+        output.textContent = String(entry.content);
       }
     } else {
       output.textContent = entry.content;
@@ -292,6 +301,7 @@ function clearHistory() {
   history.length = 0;
   currentIndex = -1;
   lastCapturedContent = null;
+  historyGeneration++;        // <-- invalidates any in-flight callbacks
   renderSnapshotSelect();
   renderOutput();
   updateVisibility();
@@ -524,13 +534,34 @@ function queryStateAsync() {
       }
 
       const raw = result.value;
+
+      // An OMNI-SCRIPT element can be mounted before jsonDataStr is populated.
+      // Treat "property exists but value is empty" as not-yet-available, not found,
+      // so we don't create a snapshot whose content is `undefined`.
+      if (raw === undefined || raw === null) {
+        resolve({
+          found: false,
+          isJson: false,
+          content:
+            "The OmniScript element was found but its state is not yet populated.\n\n" +
+            "Try clicking \"Query OmniScript State\" again once the page has fully initialised.",
+        });
+        return;
+      }
+
       try {
         const parsed = typeof raw === "string" ? JSON.parse(raw) : raw;
-        resolve({
-          found: true,
-          isJson: true,
-          content: JSON.stringify(parsed, null, 2),
-        });
+        // Belt-and-braces: JSON.stringify(undefined) === undefined.
+        const content = JSON.stringify(parsed, null, 2);
+        if (content === undefined) {
+          resolve({
+            found: false,
+            isJson: false,
+            content: "jsonDataStr resolved to undefined; no snapshot saved.",
+          });
+          return;
+        }
+        resolve({ found: true, isJson: true, content });
       } catch (e) {
         resolve({
           found: false,
@@ -547,7 +578,9 @@ function queryStateAsync() {
 }
 
 function runQuery() {
+  const generation = historyGeneration;
   return queryStateAsync().then((res) => {
+    if (generation !== historyGeneration) return res;  // stale — a clear happened
     if (res.found) {
       addSnapshot(res.content, res.isJson);
     } else if (history.length === 0) {
@@ -562,12 +595,9 @@ function setMonitorAvailability(available) {
   if (available) {
     monitorLabel.style.display = "";
     monitorCheckbox.disabled = false;
-	monitorCheckbox.checked = true;
   } else {
     monitorLabel.style.display = "none";
-    monitorCheckbox.checked = false;
     monitorCheckbox.disabled = true;
-    stopMonitoring();
   }
 }
 
@@ -576,11 +606,13 @@ function startMonitoring() {
   stopMonitoring();
   monitorTimer = setInterval(() => {
     if (monitorInFlight) return;
+    const generation = historyGeneration;
     monitorInFlight = true;
     queryStateAsync()
       .then((res) => {
-        setMonitorAvailability(res.found);
-        if (!res.found) return;
+        if (generation !== historyGeneration) return;
+        if (!res.found) return;              // transient — keep polling
+        setMonitorAvailability(true);        // re-show if it had been hidden
         if (res.content !== lastCapturedContent) {
           addSnapshot(res.content, res.isJson);
         }
@@ -752,15 +784,33 @@ monitorCheckbox.addEventListener("change", () => {
   else stopMonitoring();
 });
 
+// ---- User preferences ----
+async function loadSettings() {
+  try {
+    const settings = await chrome.storage.sync.get({
+      defaultMonitorStateChanges: false
+    });
+    defaultMonitorStateChanges = settings.defaultMonitorStateChanges;
+
+    if (defaultMonitorStateChanges === true) {
+      monitorCheckbox.checked = true;   // reflect intent visually
+      startMonitoring();
+    }
+  } catch (error) {
+    console.error("Failed to load settings:", error);
+  }
+}
+
 // ---- Init ----
+loadSettings();
 renderSnapshotSelect();
 renderOutput();
 updateVisibility();
-setMonitorAvailability(true);
+setMonitorAvailability(false);
 syncPageIdentity();
-//runQuery();
+runQuery();
 
-const sampleJSON = {
+/*const sampleJSON = {
   "userProfile": "System Administrator",
   "timeStamp": "2026-11-02T04:19:22.643Z",
   "userTimeZoneName": "Australia/Sydney",
@@ -785,5 +835,4 @@ const sampleJSON = {
 function runQuerySample() {
 	addSnapshot(JSON.stringify(sampleJSON, null, 2), true);
 }
-
-runQuerySample();
+runQuerySample();*/
