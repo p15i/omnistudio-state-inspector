@@ -27,13 +27,13 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="4.876411"
-     inkscape:cx="61.418121"
-     inkscape:cy="59.059829"
+     inkscape:zoom="3.3778686"
+     inkscape:cx="41.890321"
+     inkscape:cy="57.432666"
      inkscape:window-width="1800"
      inkscape:window-height="1101"
-     inkscape:window-x="0"
-     inkscape:window-y="40"
+     inkscape:window-x="1032"
+     inkscape:window-y="2200"
      inkscape:window-maximized="0"
      inkscape:current-layer="layer1">
     <inkscape:grid
@@ -75,6 +75,13 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1">
+    <rect
+       style="fill:#ffffff;fill-rule:evenodd;stroke-width:7.9375;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.2;paint-order:stroke fill markers;fill-opacity:1"
+       id="rect2"
+       width="33.866665"
+       height="33.866665"
+       x="0"
+       y="0" />
     <rect
        style="display:none;fill:#94ffa1;fill-opacity:1;fill-rule:evenodd;stroke-width:24.0965;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:1.2;paint-order:stroke fill markers"
        id="rect1"
